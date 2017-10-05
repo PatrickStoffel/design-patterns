@@ -35,10 +35,10 @@ public class Letter extends LetterComposite {
     this.c = c;
   }
 
-  @Override
-  public LetterComposite getChild(int index) {
-    throw new Error("getChild not allowed on Letter");
-  }
+//  @Override
+//  public LetterComposite getChild(int index) {
+//    throw new Error("getChild not allowed on Letter");
+//  }
 
   @Override
   protected void printThisBefore() {
