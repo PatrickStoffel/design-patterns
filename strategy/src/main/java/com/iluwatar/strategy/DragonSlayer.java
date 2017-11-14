@@ -20,42 +20,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.iluwatar.strategy;
 
 /**
- * Da es sich um einen object based adapter handelt, verwendet er ein {@link FishingBoat}
+ * 
+ * DragonSlayer uses different strategies to slay the dragon.
+ * 
  */
-public class BattleFishingBoat implements BattleShip {
+public class DragonSlayer {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BattleFishingBoat.class);
+  private DragonSlayingStrategy strategy;
 
-<<<<<<< HEAD
-  private FishingBoat fishingBoat;
-
-  public BattleFishingBoat() {
-    fishingBoat = new FishingBoat();
-=======
-  private FishingBoat boat;
-
-  public BattleFishingBoat() {
-    boat = new FishingBoat();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
+  public DragonSlayer(DragonSlayingStrategy strategy) {
+    this.strategy = strategy;
   }
 
-  @Override
-  public void fire() {
-    LOGGER.info("fire!");
+  public void changeStrategy(DragonSlayingStrategy strategy) {
+    // @todo: implement
   }
 
-  @Override
-  public void move() {
-<<<<<<< HEAD
-    fishingBoat.sail();
-=======
-    boat.sail();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
+  public void goToBattle() {
+    // @todo: implement
   }
 }

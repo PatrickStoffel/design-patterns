@@ -20,42 +20,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.observer.utils;
 
-import org.slf4j.Logger;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.AppenderBase;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
- * Da es sich um einen object based adapter handelt, verwendet er ein {@link FishingBoat}
+ * InMemory Log Appender Util.
  */
-public class BattleFishingBoat implements BattleShip {
+public class InMemoryAppender extends AppenderBase<ILoggingEvent> {
+  private List<ILoggingEvent> log = new LinkedList<>();
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BattleFishingBoat.class);
+  public InMemoryAppender(Class clazz) {
+    ((Logger) LoggerFactory.getLogger(clazz)).addAppender(this);
+    start();
+  }
 
-<<<<<<< HEAD
-  private FishingBoat fishingBoat;
-
-  public BattleFishingBoat() {
-    fishingBoat = new FishingBoat();
-=======
-  private FishingBoat boat;
-
-  public BattleFishingBoat() {
-    boat = new FishingBoat();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
+  public InMemoryAppender() {
+    ((Logger) LoggerFactory.getLogger("root")).addAppender(this);
+    start();
   }
 
   @Override
-  public void fire() {
-    LOGGER.info("fire!");
+  protected void append(ILoggingEvent eventObject) {
+    log.add(eventObject);
   }
 
-  @Override
-  public void move() {
-<<<<<<< HEAD
-    fishingBoat.sail();
-=======
-    boat.sail();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
+  public int getLogSize() {
+    return log.size();
+  }
+
+  public String getLastMessage() {
+    return log.get(log.size() - 1).getFormattedMessage();
   }
 }

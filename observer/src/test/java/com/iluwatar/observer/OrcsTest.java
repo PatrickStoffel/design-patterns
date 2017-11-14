@@ -20,42 +20,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.observer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
- * Da es sich um einen object based adapter handelt, verwendet er ein {@link FishingBoat}
+ * Date: 12/27/15 - 12:07 PM
+ *
+ * @author Jeroen Meulemeester
  */
-public class BattleFishingBoat implements BattleShip {
+@RunWith(Parameterized.class)
+public class OrcsTest extends WeatherObserverTest<Orcs> {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BattleFishingBoat.class);
-
-<<<<<<< HEAD
-  private FishingBoat fishingBoat;
-
-  public BattleFishingBoat() {
-    fishingBoat = new FishingBoat();
-=======
-  private FishingBoat boat;
-
-  public BattleFishingBoat() {
-    boat = new FishingBoat();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
+  @Parameterized.Parameters
+  public static Collection<Object[]> data() {
+    final List<Object[]> testData = new ArrayList<>();
+    testData.add(new Object[]{WeatherType.SUNNY, "The sun hurts the orcs' eyes."});
+    testData.add(new Object[]{WeatherType.RAINY, "The orcs are dripping wet."});
+    testData.add(new Object[]{WeatherType.WINDY, "The orc smell almost vanishes in the wind."});
+    testData.add(new Object[]{WeatherType.COLD, "The orcs are freezing cold."});
+    return testData;
   }
 
-  @Override
-  public void fire() {
-    LOGGER.info("fire!");
+  /**
+   * Create a new test with the given weather and expected response
+   *
+   * @param weather  The weather that should be unleashed on the observer
+   * @param response The expected response from the observer
+   */
+  public OrcsTest(final WeatherType weather, final String response) {
+    super(weather, response, Orcs::new);
   }
 
-  @Override
-  public void move() {
-<<<<<<< HEAD
-    fishingBoat.sail();
-=======
-    boat.sail();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
-  }
 }

@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @todo: implementiere einen klassenbasierten Adapter für ein {@link FishingBoat}
+ * Da es sich um einen class based adapter handelt erbt er von {@link FishingBoat}
  */
 public class RealBattleFishingBoat extends FishingBoat implements BattleShip {
 

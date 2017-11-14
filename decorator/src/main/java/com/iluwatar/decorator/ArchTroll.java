@@ -20,42 +20,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
+package com.iluwatar.decorator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Da es sich um einen object based adapter handelt, verwendet er ein {@link FishingBoat}
+ * Decorator that adds an arch for the troll
  */
-public class BattleFishingBoat implements BattleShip {
+public class ArchTroll extends TrollDecorator {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BattleFishingBoat.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ArchTroll.class);
 
-<<<<<<< HEAD
-  private FishingBoat fishingBoat;
+    public ArchTroll(Troll decorated) {
+        super(decorated);
+    }
 
-  public BattleFishingBoat() {
-    fishingBoat = new FishingBoat();
-=======
-  private FishingBoat boat;
+    @Override
+    public void attack() {
+        super.attack();
+        this.arrowAttack();
+    }
 
-  public BattleFishingBoat() {
-    boat = new FishingBoat();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
-  }
+    @Override
+    public int getAttackPower() {
+        return super.getAttackPower() + 10;
+    }
 
-  @Override
-  public void fire() {
-    LOGGER.info("fire!");
-  }
-
-  @Override
-  public void move() {
-<<<<<<< HEAD
-    fishingBoat.sail();
-=======
-    boat.sail();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
-  }
+    // wichtig private, sonst würde die SST eines Trolls erweitert, was ja dann eher ein Adapter wäre;-)
+    private void arrowAttack() {
+        LOGGER.info("The troll shoots an arrow at you!");
+    }
 }

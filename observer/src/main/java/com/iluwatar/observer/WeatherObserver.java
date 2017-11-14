@@ -20,42 +20,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.adapter;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.iluwatar.observer;
 
 /**
- * Da es sich um einen object based adapter handelt, verwendet er ein {@link FishingBoat}
+ * 
+ * Observer interface.
+ * 
  */
-public class BattleFishingBoat implements BattleShip {
+public interface WeatherObserver {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BattleFishingBoat.class);
+  void update(WeatherType currentWeather);
 
-<<<<<<< HEAD
-  private FishingBoat fishingBoat;
-
-  public BattleFishingBoat() {
-    fishingBoat = new FishingBoat();
-=======
-  private FishingBoat boat;
-
-  public BattleFishingBoat() {
-    boat = new FishingBoat();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
-  }
-
-  @Override
-  public void fire() {
-    LOGGER.info("fire!");
-  }
-
-  @Override
-  public void move() {
-<<<<<<< HEAD
-    fishingBoat.sail();
-=======
-    boat.sail();
->>>>>>> 97304b4d8a86ddefc5e443aae632e35b1a6f4858
-  }
 }
