@@ -30,5 +30,6 @@ package com.iluwatar.strategy;
 public interface DragonSlayingStrategy {
 
   // @todo: add method
+    void execute();
 
 }

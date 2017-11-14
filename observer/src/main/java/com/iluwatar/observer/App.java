@@ -63,19 +63,24 @@ public class App {
      */
 
     weather.timePasses();
-    orcs.update(weather.getCurrentWeather());
-    hobbits.update(weather.getCurrentWeather());
+//    orcs.update(weather.getCurrentWeather());
+//    hobbits.update(weather.getCurrentWeather());
+
+
 
     weather.timePasses();
-    orcs.update(weather.getCurrentWeather());
-    hobbits.update(weather.getCurrentWeather());
+//    orcs.update(weather.getCurrentWeather());
+//    hobbits.update(weather.getCurrentWeather());
 
     weather.timePasses();
-    orcs.update(weather.getCurrentWeather());
-    hobbits.update(weather.getCurrentWeather());
+//    orcs.update(weather.getCurrentWeather());
+//    hobbits.update(weather.getCurrentWeather());
 
     weather.timePasses();
-    orcs.update(weather.getCurrentWeather());
-    hobbits.update(weather.getCurrentWeather());
+//    orcs.update(weather.getCurrentWeather());
+//    hobbits.update(weather.getCurrentWeather());
   }
+
+
+
 }

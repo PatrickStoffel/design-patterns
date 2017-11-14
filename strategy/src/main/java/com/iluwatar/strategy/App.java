@@ -50,14 +50,20 @@ public class App {
   public static void main(String[] args) {
     LOGGER.info("Green dragon spotted ahead!");
     MeleeStrategy meleeStrategy = new MeleeStrategy();
-    meleeStrategy.execute();
+//    meleeStrategy.execute();
+    DragonSlayer dragonSlayer = new DragonSlayer(meleeStrategy);
+    dragonSlayer.goToBattle();
 
     LOGGER.info("Red dragon emerges.");
     ProjectileStrategy projectileStrategy = new ProjectileStrategy();
-    projectileStrategy.execute();
+//    projectileStrategy.execute();
+    dragonSlayer.changeStrategy(projectileStrategy);
+    dragonSlayer.goToBattle();
 
     LOGGER.info("Black dragon lands before you.");
     SpellStrategy spellStrategy = new SpellStrategy();
-    spellStrategy.execute();
+//    spellStrategy.execute();
+    dragonSlayer.changeStrategy(spellStrategy);
+    dragonSlayer.goToBattle();
   }
 }
